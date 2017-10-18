@@ -6,8 +6,8 @@ from bottle import route, view
 from datetime import datetime
 import telebot
 
-TOKEN = 'AAFvOi0o7SbiuNrNk-T4rWD6McEtyQVUixQ'
-APPNAME = 'CentCTB'
+TOKEN = '376314991:AAFvOi0o7SbiuNrNk-T4rWD6McEtyQVUixQ'
+APPNAME = 'centctb'
 
 @route('/')
 @route('/home')
