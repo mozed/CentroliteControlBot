@@ -6,6 +6,9 @@ from bottle import route, view
 from datetime import datetime
 import telebot
 
+TOKEN = 'AAFvOi0o7SbiuNrNk-T4rWD6McEtyQVUixQ'
+APPNAME = 'CentCTB'
+
 @route('/')
 @route('/home')
 @view('index')
@@ -34,3 +37,8 @@ def about():
         message='Your application description page.',
         year=datetime.now().year
     )
+@route('/setWebhook')
+def setWebhook():
+    bot = telebot.Bot(TOKEN)
+    botWebhookResult = bot.setWebhook(webhook_url='https://{}.azurewebsites.net/botHook'.format(APPNAME))
+    return str(botWebhookResult)
