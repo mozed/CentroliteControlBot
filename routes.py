@@ -1,18 +1,18 @@
 from bottle import route, view, run, request
-import telegram
+import telebot
 
 TOKEN = 'AAFvOi0o7SbiuNrNk-T4rWD6McEtyQVUixQ'
-APPNAME = 'centrolitecontrolbot'
+APPNAME = 'CentCTB'
 
 @route('/setWebhook')
 def setWebhook():
-    bot = telegram.Bot(TOKEN)
+    bot = telebot.Bot(TOKEN)
     botWebhookResult = bot.setWebhook(webhook_url='https://{}.azurewebsites.net/botHook'.format(APPNAME))
     return str(botWebhookResult)
 @route('/botHook', method='POST')
 def botHook():
-    bot = telegram.Bot(TOKEN)
-    update = telegram.update.Update.de_json(request.json, bot)
+    bot = telebot.Bot(TOKEN)
+    update = telebot.update.Update.de_json(request.json, bot)
     bot.sendMessage(chat_id=update.message.chat_id, text=getSum(update.message.text, update.message.from_user.username))
     return 'OK'
 def getSum(query, userName):
