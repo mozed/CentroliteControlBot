@@ -1,7 +1,7 @@
 from bottle import route, view, run, request
 import telegram
 
-TOKEN = 'AAFv0i0o7SbiuNrNk-T4rWD6McEtyQVUixQ'
+TOKEN = 'AAFvOi0o7SbiuNrNk-T4rWD6McEtyQVUixQ'
 APPNAME = 'centrolitecontrolbot'
 
 @route('/setWebhook')
